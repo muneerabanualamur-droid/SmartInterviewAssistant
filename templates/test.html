@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Interview Test</title>
+</head>
+<body>
+
+<h1>AI Interview Test 🤖</h1>
+
+<h3>ATS Score: {{ ats_score }}%</h3>
+
+<h3>Skills Detected:</h3>
+{% for s in skills %}
+<p>{{ s }}</p>
+{% endfor %}
+
+<hr>
+
+<h2>Answer Questions</h2>
+
+<form method="POST" action="/evaluate">
+
+    {% for q in questions %}
+        <p><b>{{ q }}</b></p>
+        <input type="text" name="ans{{ loop.index }}" placeholder="Your answer"><br><br>
+    {% endfor %}
+
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+
+<h2>AI Suggestions 🤖</h2>
+
+{% for s in suggestions %}
+<p>• {{ s }}</p>
+{% endfor %}
+
+</body>
+</html>
