@@ -68,7 +68,7 @@ def ai_suggestions(text, ats_score):
 # ---------------- HOME ----------------
 @app.route('/')
 def home():
-    return render_template("index.html")
+    return "Smart Interview Assistant is working!"
 
 # ---------------- REGISTER ----------------
 @app.route('/register', methods=['GET', 'POST'])
