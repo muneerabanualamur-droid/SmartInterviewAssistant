@@ -1,5 +1,0 @@
-flask
-pdfplumber
-python-docx
-pillow
-pytesseract
