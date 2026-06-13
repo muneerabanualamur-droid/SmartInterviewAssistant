@@ -11,8 +11,8 @@ from flask import Flask, render_template, request, session, redirect
 app = Flask(__name__)
 app.secret_key = "smart_interview_secret"
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
+if os.name == "nt":
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 # ---------------- DATABASE ----------------
 def get_db():
     conn = sqlite3.connect("database.db")
@@ -124,6 +124,8 @@ def upload():
         return redirect('/login')
 
     if request.method == 'POST':
+        os.makedirs("uploads", exist_ok=True)
+
         file = request.files['resume']
         filepath = os.path.join("uploads", file.filename)
         file.save(filepath)
@@ -173,7 +175,6 @@ def upload():
         )
 
     return render_template("upload.html")
-
 # ---------------- EVALUATION ----------------
 @app.route('/evaluate', methods=['POST'])
 def evaluate():
