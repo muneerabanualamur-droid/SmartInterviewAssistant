@@ -118,6 +118,7 @@ def logout():
     return redirect('/login')
 
 # ---------------- UPLOAD ----------------
+#upload
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     if 'user' not in session:
