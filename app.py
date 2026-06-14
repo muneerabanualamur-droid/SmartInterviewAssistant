@@ -196,6 +196,9 @@ def evaluate():
     <h2>Score: {final_score}%</h2>
     <a href='/dashboard'>Back</a>
     """
+@app.route("/health")
+def health():
+    return "OK"
 
 # ---------------- RUN ----------------
 if __name__ == "__main__":
